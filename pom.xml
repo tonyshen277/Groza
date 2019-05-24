@@ -23,12 +23,13 @@
     <artifactId>groza</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>transport</module>
-        <module>application</module>
-        <module>common</module>
-        <module>dao</module>
-        <module>tools</module>
-        <module>ui</module>
+        <module>groza-transport</module>
+        <module>groza-application</module>
+        <module>groza-common</module>
+        <module>groza-dao</module>
+        <module>groza-tools</module>
+        <module>groza-ui</module>
+        <module>groza-rule-engine</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -51,7 +52,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>1.9.5</mockito.version>
         <guava.version>23.0</guava.version>
-        <californium.version>2.0.0-M12</californium.version>
+        <californium.version>1.0.2</californium.version>
         <jackson.version>2.9.8</jackson.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <gson.version>2.6.2</gson.version>
@@ -71,6 +72,7 @@
         <spring-data-redis.version>1.8.10.RELEASE</spring-data-redis.version>
         <jedis.version>2.9.0</jedis.version>
         <jjwt.version>0.7.0</jjwt.version>
+        <pulsar.version>2.3.1</pulsar.version>
     </properties>
 
 
@@ -84,6 +86,11 @@
 
     <dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>com.sanshengshui</groupId>
+            <artifactId>rule-engine</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.sanshengshui.transport</groupId>
             <artifactId>http</artifactId>
@@ -337,6 +344,16 @@
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>rest</artifactId>
             <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pulsar</groupId>
+            <artifactId>pulsar-client-admin</artifactId>
+            <version>${pulsar.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pulsar</groupId>
+            <artifactId>pulsar-client</artifactId>
+            <version>${pulsar.version}</version>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework.data</groupId>-->
